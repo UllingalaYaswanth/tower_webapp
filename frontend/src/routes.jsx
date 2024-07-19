@@ -24,13 +24,13 @@ export const routes = [
         element: <Home />,
       },
       {
-        icon: <UserCircleIcon {...icon} />,
+        icon: <TableCellsIcon {...icon} />,
         name: "Towers",
         path: "/towers",
         element: <Towers />,
       },
       {
-        icon: <UserCircleIcon {...icon} />,
+        icon: <ServerStackIcon {...icon} />,
         name: "Uploads",
         path: "/uploads",
         element: <Uploads />,

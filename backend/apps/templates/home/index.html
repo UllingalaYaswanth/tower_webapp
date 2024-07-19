@@ -1,0 +1,300 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Site Details</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item">Dashboard sale</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="card-body text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6">
+                            <input type="text" id="icon-search" class="form-control mb-4" placeholder="search . . ">
+                        </div>
+                    </div>
+                    <div class="i-main" id="icon-wrapper"></div>
+                </div>
+                <!-- support-section start -->
+                <h1>TOWER DETAILS</h1>
+                <div class="col-xl-auto col-md-12">
+                    <div class="card flat-card">
+                        <div class="row-table">
+                            <div class="col-sm-auto card-body">
+                                <div class="row">
+                                    <div class="col-sm-auto">
+                                        <i class="material-icons-two-tone text-primary mb-1">swap_horizontal_circle</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <span>SITE ID</span>
+                                        <h5>{{ site_id }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto card-body">
+                                <div class="row">
+                                    <div class="col-sm-auto">
+                                        <i class="material-icons-two-tone text-primary mb-1">group</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <span>SCAN DATE</span>
+                                        <h5>{{ scan_date }}</h5>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto d-none d-md-table-cell d-lg-table-cell d-xl-table-cell card-body">
+                                <div class="row">
+                                    <div class="col-sm-auto">
+                                        <i class="material-icons-two-tone text-primary mb-1">language</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <span>MOUNT LEVEL</span>
+                                        <h5>{{ mount_level }}ft</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-auto card-body">
+                                <div class="row">
+                                    <div class="col-sm-auto">
+                                        <i class="material-icons-two-tone text-primary mb-1">unarchive</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <span>REPORT VERSION</span>
+                                        <h5>{{ report_version }}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <h3>CONSTRUCTION DIAGRAMS</h3>
+                    <div class="col-md-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <iframe class="pdf" src="/mnt/c/Users/Intelliod Master/Desktop/code/django-dashboard-kit/CHIND00223A_FinalStampedCDs_20211006160026.pdf">
+        </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <h3>ANTENNA LAYOUT</h3>
+                <div class = "row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Design</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ ant_layout_design|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>As-Built</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ ant_layout_built|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>ANTENNA SWING</h3>
+                <div class="col-md-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Antenna Swing Limit	(Minimum Swing Angle Tolerance = {{ min_swing }} degrees)																																														
+                            </h5>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    {{ ant_swing|safe }}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>MOUNTS</h3>
+                
+                    <div class="col-xl-auto col-md-12">
+                        <div class="card flat-card">
+                            <div class="row-table">
+                                <div class="col-sm-auto card-body">
+                                    <div class="row">
+                                        <div class="col-sm-auto">
+                                            <i class="material-icons-two-tone text-primary mb-1">swap_horizontal_circle</i>
+                                        </div>
+                                        <div class="col-sm-auto text-md-center">
+                                            <span>SITE ID</span>
+                                            <h5>{{ site_id }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-auto card-body">
+                                    <div class="row">
+                                        <div class="col-sm-auto">
+                                            <i class="material-icons-two-tone text-primary mb-1">group</i>
+                                        </div>
+                                        <div class="col-sm-auto text-md-center">
+                                            <span>SCAN DATE</span>
+                                            <h5>{{ scan_date }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                  
+                <div class = "row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Member Schedule(Sector A)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_a|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Member Schedule(Sector B)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_b|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Member Schedule(Sector C)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_c|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Dimensions(Sector A)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_a_dim|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Dimensions(Sector B)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_b_dim|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Dimensions(Sector C)</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        {{ sec_c_dim|safe }}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- support-section end -->
+                
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    
+	<!-- google-map Js -->
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyDsucrEdmswqYrw0f6ej3bf4M4suDeRgNA"></script>
+	<script src="/static/assets/js/plugins/gmaps.min.js"></script>
+	<script src="/static/assets/js/pages/google-maps.js"></script>
+
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <script src="/static/assets/js/pages/dashboard-sale.js"></script>
+
+{% endblock javascripts %}
