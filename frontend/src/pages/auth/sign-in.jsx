@@ -1,105 +1,70 @@
-import {
-  Card,
-  Input,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import axios from 'axios'; // Import Axios for HTTP requests
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import bg from './bg2.mp4';
 
 export function SignIn() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
-  const handleSignIn = async (event) => {
-    event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (email === 'user1@gmail.com' || email === 'user2@gmail.com' || email === 'user3@gmail.com') {
+            localStorage.setItem('userEmail',email)
+            navigate('/dashboard/home'); // Navigate to the dashboard home page
+        } else {
+            alert('Email not recognized');
+        }
+    };
 
-    try {
-      const response = await axios.post('/login', { email, password });
-      const { token, user } = response.data;
-
-      // Store token in localStorage or sessionStorage for future requests
-      localStorage.setItem('token', token);
-
-      // Determine the redirection based on user role or any other logic
-      switch(user.role) {
-        case 'dashboard':
-          navigate('/dashboard/home');
-          break;
-        case 'developer':
-          navigate('/developer');
-          break;
-        case 'user':
-          navigate('/user');
-          break;
-        default:
-          console.error('Unknown role');
-      }
-    } catch (error) {
-      console.error('Error logging in:', error.response.data.error);
-      // Handle error display or state update for invalid login
-    }
-  };
-
-  return (
-    <section className="m-8 flex gap-4">
-      <div className="w-full lg:w-3/5 mt-24">
-        <div className="text-center">
-          <Typography variant="h2" className="font-bold mb-4">Sign In</Typography>
+    return (
+        <div className="flex h-screen">
+            <div className="w-1/2 flex items-center justify-center bg-gray-100 flex-col">
+                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-96">
+                    <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+                    <div className="mb-4">
+                        <label className="block text-sm font-semibold mb-2" htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full p-2 border border-gray-300 rounded"
+                            placeholder="you@example.com"
+                            required
+                        />
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-sm font-semibold mb-2" htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            className="w-full p-2 border border-gray-300 rounded"
+                            placeholder="********"
+                            required
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-500"
+                    >
+                        Sign In
+                    </button>
+                </form>
+            </div>
+            <div className="w-1/2 relative overflow-hidden rounded-2xl bg-gray-100">
+                <video
+                    src={bg}
+                    autoPlay
+                    loop
+                    muted
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-s-2xl bg-gray-100"
+                    type="video/mp4"
+                    style={{ playbackRate: 0.2 }} // Adjust the rate as needed
+                />
+            </div>
         </div>
-        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2" onSubmit={handleSignIn}>
-          <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-              Your email
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="name@mail.com"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Typography variant="small" color="blue-gray" className="-mb-3 font-medium">
-              Password
-            </Typography>
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <Button className="mt-10" fullWidth type="submit">
-            Sign In
-          </Button>
-
-          <div className="flex items-center justify-end gap-2 mt-6">
-            <Typography variant="small" className="font-medium text-gray-900">
-              <a href="#">
-                Forgot Password
-              </a>
-            </Typography>
-          </div>
-        </form>
-      </div>
-      <div className="w-2/5 h-full hidden lg:block">
-        <img
-          src="/img/pattern.png"
-          className="h-full w-full object-cover rounded-3xl"
-        />
-      </div>
-    </section>
-  );
+    );
 }
 
 export default SignIn;

@@ -19,18 +19,10 @@ export function Towers() {
     const fetchDocuments = async () => {
       // Simulated data for testing purposes
       const mockDocuments = [
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" }
+        { name: "ABC", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
+        { name: "XYZ", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
+        { name: "A1B1C1", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
+
       ];
       setDocuments(mockDocuments);
     };

@@ -26,18 +26,9 @@ export function Home() {
     const fetchDocuments = async () => {
       // Simulated data for testing purposes
       const mockDocuments = [
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
-        { name: "ATATL00143A", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
-        { name: "STSTL00223B", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" }
+        { name: "ABC", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
+        { name: "XYZ", uploaded: "04-05-2024", statusProcess: "Completed", lastMaintainDate: "2023-07-01" },
+        { name: "A1B1C1", uploaded: "03-05-2024", statusProcess: "Processing", lastMaintainDate: "2023-06-15" },
       ];
       setDocuments(mockDocuments);
     };
@@ -56,25 +47,25 @@ export function Home() {
         <StatisticsCard
           title="Total Sites"
           icon={<BanknotesIcon className="w-6 h-6 text-white" />}
-          value={2000} // Use documents state to get the count of documents
+          value={3} // Use documents state to get the count of documents
           color="gray"
         />
         <StatisticsCard
           title="OBJ"
           icon={<UserGroupIcon className="w-6 h-6 text-white" />}
-          value={1020} // Placeholder value, replace with actual data
+          value={3} // Placeholder value, replace with actual data
           color="gray"
         />
         <StatisticsCard
           title="LAZ"
           icon={<DocumentTextIcon className="w-6 h-6 text-white" />}
-          value={1600} // Placeholder value, replace with actual data
+          value={3} // Placeholder value, replace with actual data
           color="gray"
         />
         <StatisticsCard
           title="KML"
           icon={<FlagIcon className="w-6 h-6 text-white" />}
-          value={900} // Placeholder value, replace with actual data
+          value={3} // Placeholder value, replace with actual data
           color="gray"
         />
       </div>
@@ -104,7 +95,7 @@ export function Home() {
                     >
                       <Typography
                         variant="small"
-                        className="text-[11px] font-medium uppercase text-blue-gray-400"
+                        className="text-[11px] font-medium font-bold uppercase text-blue-gray-400"
                       >
                         {el}
                       </Typography>
