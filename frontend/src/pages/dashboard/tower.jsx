@@ -72,9 +72,9 @@ export function Tower({ goBack }) {
 
       // Load models dynamically based on their email-specific folder
       const folderName = 
-        userEmail === 'user1@gmail.com' ? 'HOHOU00677_OBJ' :
-        userEmail === 'user2@gmail.com' ? 'DCWDC00317A_OBJ' :
-        userEmail === 'user3@gmail.com' ? 'DADAL00398B_OBJ' : 
+        userEmail === 'user1@gmail.com' ? 'DADAL00398B_OBJ' :
+        userEmail === 'user2@gmail.com' ? '1' :
+        userEmail === 'user3@gmail.com' ? '2' : 
         null;
 
       if (!folderName) {
@@ -195,10 +195,28 @@ export function Tower({ goBack }) {
           <Typography variant="h4" className="mb-4">
             CONSTRUCTION DIAGRAMS
           </Typography>
-          <Card className="p-4 h-auto grid md:grid-cols-2">
-          <div id="viewer-container" style={{ height: '400px', width: '100%' ,backgroundColor: 'burlywood' }} className="border-2" ></div>
+          <Card className="p-4 h-auto grid md:grid-cols-2 gap-5">
+            <div
+              id="viewer-container"
+              style={{ height: '400px', width: '100%', backgroundColor: 'burlywood' }}
+              className="border-2"
+            ></div>
+             <div className=" border-2 p-3">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d9540.195161595973!2d83.31283792915833!3d17.733152090034732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDQzJzUzLjciTiA4M8KwMTknMDYuOSJF!5e1!3m2!1sen!2sin!4v1726925463570!5m2!1sen!2sin"
+                width="100%"
+                height="370"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Maps Location"
+              ></iframe>
+            </div>
           </Card>
+           
         </div>
+
         
         <div className="mb-8">
           <Typography variant="h4" className="mb-4">

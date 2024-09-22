@@ -29,7 +29,7 @@
 
 // // obj viewer-----------------
 
-// const directoryPath = path.join(__dirname, '../frontend/public/HOHOU00677_OBJ/Data');
+// const directoryPath = path.join(__dirname, '../frontend/public/DADAL00398B_OBJ/Data');
 
 // app.get('/api/models', (req, res) => {
 //   fs.readdir(directoryPath, (err, files) => {
@@ -93,7 +93,7 @@
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 
-// const directoryPath = path.join(__dirname, '../frontend/public/HOHOU00677_OBJ/Data');
+// const directoryPath = path.join(__dirname, '../frontend/public/DADAL00398B_OBJ/Data');
 
 // app.get('/api/models', (req, res) => {
 //   fs.readdir(directoryPath, (err, files) => {
@@ -165,11 +165,11 @@ app.get('/api/models', (req, res) => {
 
   // Set the directory path based on the user's email
   if (userEmail === 'user1@gmail.com') {
-    directoryPath = path.join(__dirname, '../frontend/public/HOHOU00677_OBJ/Data');
-  } else if (userEmail === 'user2@gmail.com') {
-    directoryPath = path.join(__dirname, '../frontend/public/DCWDC00317A_OBJ/Data');
-  } else if (userEmail === 'user3@gmail.com') {
     directoryPath = path.join(__dirname, '../frontend/public/DADAL00398B_OBJ/Data');
+  } else if (userEmail === 'user2@gmail.com') {
+    directoryPath = path.join(__dirname, '../frontend/public/1/Data');
+  } else if (userEmail === 'user3@gmail.com') {
+    directoryPath = path.join(__dirname, '../frontend/public/2/Data');
   } else {
     return res.status(400).json({ error: 'Invalid email' });
   }

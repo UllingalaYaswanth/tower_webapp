@@ -674,6 +674,14 @@ mountsSheet.addRow([]);
           </Typography>
         </DialogHeader>
         <DialogBody>
+        <Input
+            type="text"
+            color="blue"
+            label="Folder Name"
+            // onChange={handleFolderNameChange}
+            className="mb-4"
+            required
+          />
           <div className="grid gap-4 grid-cols-2">
             {cardData.map((card) => (
               <Card key={card.name} onClick={() => handleOpen(card.name)}>
@@ -696,7 +704,7 @@ mountsSheet.addRow([]);
           <Button color="red" onClick={() => setOpen(false)}>
             Close
           </Button>
-          <Button color="blue" className="ms-3">
+          <Button color="blue" className="ms-3" onClick={() => setOpen(false)}>
             Upload
           </Button>
         </DialogFooter>
